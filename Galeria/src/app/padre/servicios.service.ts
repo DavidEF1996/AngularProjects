@@ -1,13 +1,14 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Gif, Welcome } from './interfaces/interfaces';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ServiciosService {
-  public resultados: any[] = [];
+  public resultados: Gif[] = [];
   constructor(private http: HttpClient) {}
-
+  private url = 'https://api.giphy.com/v1/gifs';
   private apikey: string = 'aJG5m7JMCyZQPXDcaB57tWpeRZC008Br';
 
   private _arreglobusquedas: string[] = [];
@@ -17,18 +18,19 @@ export class ServiciosService {
   }
 
   guardarDato(data: string) {
-    console.log('entro con ', data);
-
     if (!this._arreglobusquedas.includes(data) && data != '') {
       this._arreglobusquedas.unshift(data);
       this._arreglobusquedas = this.arreglobusquedas.splice(0, 10);
-      this.http
-        .get(
-          `https://api.giphy.com/v1/gifs/search?api_key=aJG5m7JMCyZQPXDcaB57tWpeRZC008Br&q=${data}`
-        )
-        .subscribe((res: any) => {
-          this.resultados = res.data;
-        });
     }
+
+    const params = new HttpParams()
+      .set('api_key', this.apikey)
+      .set('limit', '10')
+      .set('q', data);
+    this.http
+      .get<Welcome>(`${this.url}/search`, { params })
+      .subscribe((res: any) => {
+        this.resultados = res.data;
+      });
   }
 }

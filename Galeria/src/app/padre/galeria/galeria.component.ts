@@ -8,7 +8,6 @@ import { ServiciosService } from '../servicios.service';
 })
 export class GaleriaComponent implements OnInit {
   get resultados() {
-    console.log(this.servicios.resultados);
     return this.servicios.resultados;
   }
   constructor(private servicios: ServiciosService) {}
