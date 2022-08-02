@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ServiciosHeroeService } from '../../services/servicios-heroe.service';
+import { Heroes } from '../../interfaces/interfaces';
 
 @Component({
   selector: 'app-listado',
@@ -9,7 +11,14 @@ export class ListadoComponent implements OnInit {
 
   constructor() { }
 
+
+
+
+
   ngOnInit(): void {
+
   }
+
+
 
 }

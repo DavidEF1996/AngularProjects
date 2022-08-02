@@ -8,6 +8,7 @@ import { AgregarComponent } from '../pages/agregar/agregar.component';
 import { BuscarComponent } from '../pages/buscar/buscar.component';
 import { HeroeComponent } from '../pages/heroe/heroe.component';
 import { HomeComponent } from '../pages/home/home.component';
+import { TarjetasComponent } from '../components/tarjetas/tarjetas.component';
 
 
 
@@ -18,7 +19,7 @@ const routes: Routes = [
     children: [
       {
         path: 'listado',
-        component: ListadoComponent
+        component: TarjetasComponent
       },
       {
         path: 'agregar',
@@ -33,7 +34,7 @@ const routes: Routes = [
         component: BuscarComponent
       },
       {
-        path: 'id',
+        path: ':id',
         component: HeroeComponent
       },
       {

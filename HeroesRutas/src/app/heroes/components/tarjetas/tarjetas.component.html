@@ -1,0 +1,27 @@
+<h1>Héroes</h1>
+<mat-divider></mat-divider>
+
+
+<div class="tarjetas">
+
+  <mat-card *ngFor="let items of heroe" class="mb-3">
+    <mat-card-header>
+      <mat-card-title>{{items.superhero}}</mat-card-title>
+      <mat-card-subtitle>{{items.alter_ego}}</mat-card-subtitle>
+    </mat-card-header>
+
+
+    <img mat-card-image [src]="items | rutasHeroes">
+
+    <mat-card-content>
+      <h3>{{items.publisher}}</h3>
+      <p><strong>Primera Aparición: </strong> {{items.first_appearance}}</p>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-button color="danger" [routerLink]="['/heroes/',items.id]">Más...</button>
+      <button mat-button color="warn" [routerLink]="['/heroes/editar',items.id]">Editar</button>
+    </mat-card-actions>
+  </mat-card>
+
+</div>
