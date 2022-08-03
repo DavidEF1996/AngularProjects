@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ServiciosService } from '../../servicios.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private servicio: ServiciosService) { }
 
   ngOnInit(): void {
+  }
+
+
+  login() {
+    this.servicio.getClientes().subscribe(e => {
+      if (e.id) {
+        this.router.navigate(['./heroes/listado']);
+      }
+    })
   }
 
 }
