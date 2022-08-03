@@ -4,7 +4,8 @@ import { Heroes } from '../interfaces/interfaces';
 
 
 @Pipe({
-  name: 'rutasHeroes'
+  name: 'rutasHeroes',
+
 })
 export class RutasHeroesPipe implements PipeTransform {
 
@@ -17,9 +18,18 @@ export class RutasHeroesPipe implements PipeTransform {
 
   mostrarRuta(objeto: Heroes) {
 
-    if (objeto) {
+    if (objeto.id && !objeto.alt_img) {
       return "assets/heroes/" + objeto.id + ".jpg"
-    } else {
+    } else if (objeto.alt_img) {
+      if (objeto.alt_img.length <= 5) {
+        return "assets/no-image.png"
+      } else {
+
+        return objeto.alt_img
+      }
+
+    }
+    else {
       return "assets/no-image.png"
     }
   }

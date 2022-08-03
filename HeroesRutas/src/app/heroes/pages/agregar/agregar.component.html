@@ -1,1 +1,60 @@
-<p>agregar works!</p>
+<p>Agregar Héroe</p>
+<mat-divider></mat-divider>
+<br>
+<div class="row">
+
+  <div class="col">
+    <mat-form-field>
+      <mat-label>Nombre</mat-label>
+      <input matInput [(ngModel)]="objeto.superhero">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>AlterEgo</mat-label>
+      <input matInput [(ngModel)]="objeto.alter_ego">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Primera Aparición</mat-label>
+      <input matInput [(ngModel)]="objeto.first_appearance">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Personajes</mat-label>
+      <input matInput [(ngModel)]="objeto.characters">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Creador</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let food of listaCreadores" [value]="food.id">
+          {{food.desc}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field>
+      <mat-label>URL</mat-label>
+      <input matInput [(ngModel)]="objeto.alt_img" required>
+    </mat-form-field>
+    <br>
+
+    <div class="d-flex justify-content-between">
+      <button mat-raised-button (click)="imprimir()" *ngIf="objeto.id">
+        Actualizar
+      </button>
+      <button mat-raised-button (click)="imprimir()" *ngIf="!objeto.id">
+        Guardar
+      </button>
+
+      <button mat-raised-button *ngIf="objeto.id" (click)="eliminar(objeto.id)">
+        Eliminar
+      </button>
+    </div>
+  </div>
+  <div class="col">
+
+    <img [src]="objeto | rutasHeroes">
+  </div>
+</div>

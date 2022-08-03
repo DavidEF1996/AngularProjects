@@ -9,6 +9,8 @@ import { HeroesRoutingModule } from './heroes-routing/heroes-routing.module';
 import { MaterialModule } from '../material/material.module';
 import { RutasHeroesPipe } from './pipes/rutas-heroes.pipe';
 import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
+import { FormsModule } from '@angular/forms';
+import { EmergenteComponent } from './components/emergente/emergente.component';
 
 
 
@@ -22,12 +24,14 @@ import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
     ListadoComponent,
     RutasHeroesPipe,
     TarjetasComponent,
+    EmergenteComponent,
 
   ],
   imports: [
     CommonModule,
     HeroesRoutingModule,
     MaterialModule,
+    FormsModule
 
   ]
 })

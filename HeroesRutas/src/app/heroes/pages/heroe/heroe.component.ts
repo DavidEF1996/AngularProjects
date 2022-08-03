@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ServiciosHeroeService } from '../../services/servicios-heroe.service';
 import { Heroes } from '../../interfaces/interfaces';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -13,17 +13,26 @@ export class HeroeComponent implements OnInit {
     private servicio: ServiciosHeroeService,
     private route: ActivatedRoute,
     private router: Router
-  ) {}
+  ) { }
 
+  @Input('heroe') heroe?: Heroes;
   recibir!: Heroes;
 
   ngOnInit(): void {
-    this.route.params.subscribe((e) => {
-      const { id } = e;
-      this.servicio.getInfoCliente(id).subscribe((res) => {
+
+    if (this.heroe) {
+      this.servicio.getInfoCliente(this.heroe.id).subscribe((res) => {
         this.recibir = res;
       });
-    });
+    } else {
+      this.route.params.subscribe((e) => {
+        const { id } = e;
+        this.servicio.getInfoCliente(id).subscribe((res) => {
+          this.recibir = res;
+        });
+      });
+    }
+
   }
 
   regresar() {
