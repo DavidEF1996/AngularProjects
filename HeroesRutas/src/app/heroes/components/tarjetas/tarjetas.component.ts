@@ -13,6 +13,9 @@ export class TarjetasComponent implements OnInit {
 
   heroe: Heroes[] = [];
 
+  carrito:Heroes[] =[];
+
+
 
   cargarHeroesInterfaz() {
     return this.servicios.getClientes().subscribe(res => {
@@ -22,5 +25,38 @@ export class TarjetasComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargarHeroesInterfaz();
+  }
+
+  agregarCarro(productoPorGuardar:Heroes){
+  
+    let agregarOnoAgregar = false;
+
+    if(this.carrito.length==0){
+      productoPorGuardar.cantidad!++;
+      this.carrito.push(productoPorGuardar);
+    }else{
+      this.carrito.forEach(productoYaGuardado => {
+      
+        if(productoYaGuardado.id==productoPorGuardar.id){
+          productoYaGuardado.cantidad!++;
+          agregarOnoAgregar=true;
+        }
+      });
+
+      if(agregarOnoAgregar==false){
+        productoPorGuardar.cantidad!++;
+        this.carrito.push(productoPorGuardar);
+      }
+    }
+
+   
+//Agregar en estan linea el setlocalstorage pasandole el this.carrito
+localStorage.setItem('productosGuardados', JSON.stringify(this.carrito));
+     console.log("Se va a agregar: " , this.carrito)
+  }
+
+
+  verCarrito(){
+    document.location.href = "/heroes/carrito";
   }
 }

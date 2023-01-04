@@ -6,6 +6,7 @@ export interface Heroes {
   first_appearance: string;
   characters: string;
   alt_img?: string;
+  cantidad?:number;
 }
 
 export enum Tienda {

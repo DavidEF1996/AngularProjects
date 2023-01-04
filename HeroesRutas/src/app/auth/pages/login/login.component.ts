@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServiciosService } from '../../servicios.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -9,18 +10,58 @@ import { ServiciosService } from '../../servicios.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router, private servicio: ServiciosService) { }
+  public myForm!:FormGroup;
+
+  constructor(private fb:FormBuilder,
+    private routerprd:Router) { }
+
+
+ 
+
 
   ngOnInit(): void {
+    console.log("se encuentra2");
+    console.log(this.routerprd);
+    this.myForm = this.createMyForm();
+    
+      
+  
   }
 
 
-  login() {
-    this.servicio.getClientes().subscribe(e => {
-      if (e.id) {
-        this.router.navigate(['./heroes/listado']);
-      }
-    })
+  handleCredentialResponse(response:any){
+
+    console.log(response);
+    console.log(this.routerprd);
+    if(response.credential){
+     //sessionStorage.setItem("token",response.credential);
+     document.location.href = "/sesion/principal";
+    }
+  }
+
+  private createMyForm():FormGroup{
+    return this.fb.group({
+      usuario:['',[Validators.required]],
+      password:['',Validators.required]
+    });
+  }
+
+  public submitFormulario(){
+    console.log("hago clikc")
+    if(this.myForm.invalid){
+        Object.values(this.myForm.controls).forEach(control=>{
+          control.markAllAsTouched();
+        });
+        return;
+    }
+
+    
+      document.location.href = "/heroes/listado";
+     
+  }
+
+  public get f():any{
+    return this.myForm.controls;
   }
 
 }

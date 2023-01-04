@@ -24,7 +24,7 @@ const routes: Routes = [ //creamos las rutas padre de la app
 
   {
     path: '**',
-    redirectTo: '404'
+    redirectTo: 'auth/login'
   }
 ];
 
