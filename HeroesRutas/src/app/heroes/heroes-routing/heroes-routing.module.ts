@@ -9,6 +9,7 @@ import { ListadoComponent } from '../pages/listado/listado.component';
 import { HomeComponent } from '../pages/home/home.component';
 import { TarjetasComponent } from '../components/tarjetas/tarjetas.component';
 import { CarritoComponent } from '../components/carrito/carrito.component';
+import { FacturaComponent } from '../components/factura/factura.component';
 
 
 
@@ -27,9 +28,10 @@ const routes: Routes = [
         component: CarritoComponent
       },
 
-   
-
-  
+      {
+        path:'factura',
+        component:FacturaComponent
+      },  
       {
         path: '**',
         redirectTo: 'listado'

@@ -13,3 +13,13 @@ export enum Tienda {
   DCComics = "DC Comics",
   MarvelComics = "Marvel Comics",
 }
+
+
+export interface Factura{
+
+  nombreUsuario:string,
+  fecha:string,
+  subtotal:number,
+  total:number,
+  iva:number
+}

@@ -10,6 +10,7 @@ import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
 import { FormsModule } from '@angular/forms';
 import { EmergenteComponent } from './components/emergente/emergente.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
+import { FacturaComponent } from './components/factura/factura.component';
 
 
 
@@ -22,6 +23,7 @@ import { CarritoComponent } from './components/carrito/carrito.component';
     TarjetasComponent,
     EmergenteComponent,
     CarritoComponent,
+    FacturaComponent,
 
   ],
   imports: [
