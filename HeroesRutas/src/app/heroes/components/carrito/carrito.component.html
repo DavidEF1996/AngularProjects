@@ -1,36 +1,43 @@
-<div >
+<div class="container fondoCarro">
   <table class="table mb-1">
     <thead class="thead-dark">
       <tr>
-        <th >Imagen</th>
-        <th >Nombre</th>
-        <th >Precio</th>
-      <th>Eliminar</th>
+        <th>Imagen</th>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Cantidad</th>
+        <th>Eliminar</th>
       </tr>
     </thead>
     <tbody *ngIf="data.length > 0">
       <ng-container *ngFor="let item of data; index as i" formArrayName="listaServicios">
-        <ng-container >
-          <tr >
-            <td >
+        <ng-container>
+          <tr>
+            <td>
               <img mat-card-image [src]="item | rutasHeroes">
             </td>
             <td>
-             
-           {{item.superhero}}
+
+              {{item.superhero}}
               <!-- <small>{{item.servicioActivo? item.precioServicio:'NO CUENTAS CON ESTE SERVICIO'}}</small> -->
             </td>
 
-            <td >
+            <td>
               {{item.first_appearance}}
             </td>
-        <td>
-          <button (click)="eliminar(item)">Eliminar</button>
-        </td>
-        
-           
 
-    
+            <td><input type="text" id="cantidad" name="cantidad" #cantidad value="{{item.cantidad}}"
+                [disabled]="item.actualizar"></td>
+            <td>
+              <button mat-button (click)="eliminar(item)" class="eliminar mb-1">Eliminar</button>
+
+              <button mat-button (click)="modificar(item, cantidad.value)" class="actualizar">
+                {{item.actualizar?"Actualizar":"Guardar"}}</button>
+            </td>
+
+
+
+
             <!-- <td
               class="center-in-td"
               *ngIf="
@@ -45,5 +52,7 @@
     </tbody>
   </table>
 
-  <button (click)="salvarFactura()">Facturar</button>
+</div>
+<div style="display: flex; justify-content: center; align-items: center;" class="mt-5">
+  <button mat-button (click)="salvarFactura()" class="facturar">Facturar</button>
 </div>

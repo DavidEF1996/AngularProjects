@@ -1,12 +1,13 @@
 export interface Heroes {
   id: string;
   superhero: string;
-  publisher: Tienda;
+  publisher: Tienda | any;
   alter_ego: string;
   first_appearance: string;
   characters: string;
   alt_img?: string;
-  cantidad?:number;
+  cantidad?: number;
+  actualizar: boolean;
 }
 
 export enum Tienda {
@@ -15,11 +16,11 @@ export enum Tienda {
 }
 
 
-export interface Factura{
+export interface Factura {
 
-  nombreUsuario:string,
-  fecha:string,
-  subtotal:number,
-  total:number,
-  iva:number
+  nombreUsuario: string,
+  fecha: string,
+  subtotal: number,
+  total: number,
+  iva: number
 }

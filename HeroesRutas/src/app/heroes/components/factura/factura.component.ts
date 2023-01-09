@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Factura } from '../../interfaces/interfaces';
+import { Factura, Heroes } from '../../interfaces/interfaces';
 
 @Component({
   selector: 'app-factura',
@@ -8,27 +8,36 @@ import { Factura } from '../../interfaces/interfaces';
 })
 export class FacturaComponent implements OnInit {
 
-  datos?:Factura;
+  datos?: Factura;
+  data: Heroes[] = []
   constructor() { }
 
 
-  
+
   ngOnInit(): void {
     this.cargarDatosMemoria();
+    this.detalleProductos();
   }
 
 
-  cargarDatosMemoria (){
+  cargarDatosMemoria() {
 
-  this.datos= JSON.parse(localStorage.getItem('datosFactura')!) as Factura;
+    this.datos = JSON.parse(localStorage.getItem('datosFactura')!) as Factura;
 
-    
+
   }
 
 
-  limpiarLocalStorage(){
-  
+  limpiarLocalStorage() {
+
     localStorage.clear();
     document.location.href = "/heroes/listado";
+  }
+
+  detalleProductos() {
+
+    this.data = JSON.parse(localStorage.getItem('productosGuardados')!) as Heroes[];
+
+    console.log(this.data);
   }
 }

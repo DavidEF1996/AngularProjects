@@ -4,3 +4,13 @@
   gap: 20px;
   padding: 10px;
 }
+
+img {
+  height: 325px;
+}
+.cardNueva {
+  background-color: brown;
+}
+.boton {
+  background-color: gray;
+}

@@ -14,7 +14,8 @@
       "alter_ego": "Bruce Wayne",
       "first_appearance": "2.50",
       "characters": "Bruce Wayne",
-      "cantidad":0
+      "cantidad": 0,
+      "actualizar": true
     },
     {
       "id": "Brocolo",
@@ -23,7 +24,8 @@
       "alter_ego": "Kal-El",
       "first_appearance": "1.00",
       "characters": "Kal-El",
-      "cantidad":0
+      "cantidad": 0,
+      "actualizar": true
     },
     {
       "id": "Frutillas",
@@ -32,7 +34,8 @@
       "alter_ego": "Jay Garrick",
       "first_appearance": "4.00",
       "characters": "Jay Garrick, Barry Allen, Wally West, Bart Allen",
-      "cantidad":0
+      "cantidad": 0,
+      "actualizar": true
     },
     {
       "id": "Remolacha",
@@ -41,7 +44,8 @@
       "alter_ego": "Alan Scott",
       "first_appearance": "2.00",
       "characters": "Alan Scott, Hal Jordan, Guy Gardner, John Stewart, Kyle Raynor, Jade, Sinestro, Simon Baz",
-      "cantidad":0
+      "cantidad": 0,
+      "actualizar": true
     },
     {
       "id": "Tomate",
@@ -50,7 +54,8 @@
       "alter_ego": "Oliver Queen",
       "first_appearance": "0.50",
       "characters": "Oliver Queen",
-      "cantidad":0
+      "cantidad": 0,
+      "actualizar": true
     },
     {
       "id": "Uvillas",
@@ -59,7 +64,8 @@
       "alter_ego": "Princess Diana",
       "first_appearance": "0.25",
       "characters": "Princess Diana",
-      "cantidad":0
+      "cantidad": 0,
+      "actualizar": true
     }
   ]
 }
